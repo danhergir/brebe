@@ -1,1 +1,1 @@
-Making of electronic payments in Colombia 🇨🇴 easier for businesses and costumers.
+Making it easy for electronic payments in Colombia 🇨🇴 
