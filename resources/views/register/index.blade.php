@@ -5,85 +5,75 @@
 <div>
     <section>
         <div class="py-8 px-4 mt-8  mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 class="mt-10 text-4xl font-extrabold tracking-tight leading-none text-white">Estás a unos pocos pasos de empezar a vender con Brebe.</h1>
+            <h1 class="mt-10 text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-none text-white">Estás a unos pocos pasos de empezar a vender con Brebe.</h1>
         </div>
     </section>
 
     <div class="text-center">
-        <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
-            <li class="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5 rtl:space-x-reverse">
-                <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
-                    1
-                </span>
-                <span>
-                    <h3 class="font-medium leading-tight">Información Personal</h3>
-                    {{-- <p class="text-sm">Step details here</p> --}}
-                </span>
-            </li>
-            
-            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
-            </svg>
-              
-            <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                    2
-                </span>
-                <span>
-                    <h3 class="font-medium leading-tight">Ubicación</h3>
-                    {{-- <p class="text-sm">Step details here</p> --}}
-                </span>
-            </li>
-            
-            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
-            </svg>     
-
-            <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                    3
-                </span>
-                <span>
-                    <h3 class="font-medium leading-tight">Datos Bancarios</h3>
-                    {{-- <p class="text-sm">Step details here</p> --}}
-                </span>
-            </li>
-
-            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
-            </svg>
-
-            <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                    4
-                </span>
-                <span>
-                    <h3 class="font-medium leading-tight">Datos del Negocio</h3>
-                    {{-- <p class="text-sm">Step details here</p> --}}
-                </span>
-            </li>
-
-            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
-            </svg>
-
-            <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                    5
-                </span>
-                <span>
-                    <h3 class="font-medium leading-tight">Validación</h3>
-                    {{-- <p class="text-sm">Step details here</p> --}}
-                </span>
-            </li>
-        </ol>
-
-
+        <div class="linear-stepper">
+            <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
+                <!-- Step items here -->
+                <li class="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">1</span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Información Personal</h3>
+                    </span>
+                </li>
+                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                </svg>
+                <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">2</span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Ubicación</h3>
+                    </span>
+                </li>
+                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                </svg>
+                <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">3</span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Datos Bancarios</h3>
+                    </span>
+                </li>
+                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                </svg>
+                <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">4</span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Datos del Negocio</h3>
+                    </span>
+                </li>
+                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                </svg>
+                <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">5</span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Validación</h3>
+                    </span>
+                </li>
+            </ol>
+        </div>
+        <div class="radial-stepper hidden mx-auto text-center">
+            <ol class="mx-auto text-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
+                <li class="mx-auto text-center text-blue-600 dark:text-blue-500 space-x-2.5 rtl:space-x-reverse">
+                    <button type="button" class="text-white bg-blue-600 border font-medium rounded-full text-md px-5 py-2.5 text-center me-2 mb-2">1 de 5</button>
+                    <span>
+                        {{-- <h3 class="font-medium text-2xl text-center">Información Personal</h3> --}}
+                        <p class="text-sm text-center text-blue-600">Siguiente paso: Ubicación</p>
+                    </span>
+                </li>
+            </ol>            
+        </div>    
     </div>
+    
     
     <section class="text-white">
         <div class="py-5 px-4 mx-auto max-w-2xl lg:py-16">
-            <h2 class="mb-4 text-3xl font-bold text-white dark:text-white text-center">Información Personal</h2>
+            <h2 class="mb-6 text-3xl font-bold text-white dark:text-white text-center">Información Personal</h2>
             <form action="#">
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-2">
