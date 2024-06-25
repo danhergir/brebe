@@ -1,153 +1,168 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brebe</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.5.0/flowbite.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    
     @vite('resources/css/app.css')
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Monitor your customers' experiences through feedback</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="{{ asset('assets/img/icons/favicon_16x16.png') }}" rel="icon">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <style>
-        .navbar a {
-            font-weight: bold;
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+            background: linear-gradient(180deg, #001f3f 0%, #000000 100%);
             color: white;
         }
-
-        #app {
-            flex:1;
+        h1 {
+            font-size: 6rem; /* Adjusted font size for smaller screens */
+            font-weight: 900; /* Higher font-weight */
+            text-align: center;
+            margin-bottom: 20px;
         }
-
-        .logo-feedbacker {
-            width: 200px;
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2017/08/30/09/22/ocean-2699534_960_720.png') repeat-x;
+            background-size: cover;
+            animation: wave-animation 10s linear infinite;
+            z-index: -1; /* Ensure wave animation is behind content */
         }
-
-        body {
+        @keyframes wave-animation {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        .button-container {
             display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* This ensures that the footer stays at the bottom of the viewport */
-            margin: 0;
+            justify-content: center;
+            flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+            gap: 20px; /* Space between buttons */
+            margin-top: 20px;
         }
-        
+        .button-container button {
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button-primary {
+            background-color: #007BFF;
+            color: white;
+        }
+        .button-primary:hover {
+            background-color: #0056b3;
+        }
+        .button-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .button-secondary:hover {
+            background-color: #5a6268;
+        }
+        .navbar {
+            background-color: #ffffff; /* White background */
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10; /* Ensure navbar is above content */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px; /* Adjusted padding for container */
+            max-width: 1200px; /* Limit container width */
+            margin: 0 auto; /* Center container */
+        }
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar .menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar .menu a:hover {
+            background-color: #f0f0f0;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem; /* Adjust font size for smaller screens */
+            }
+            .main-content {
+                padding-top: 100px; /* Adjusted top padding for smaller screens */
+            }
+            .button-container {
+                flex-direction: column; /* Stack buttons vertically on smaller screens */
+                align-items: center;
+            }
+            .button-container button {
+                width: 100%; /* Full width buttons on smaller screens */
+            }
+        }
     </style>
-
 </head>
-<body>    
-    <div id="app">
+<body>
 
-        <nav class="bg-white border-gray-200 border">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="{{ url('/home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img class="logo-feedbacker img-fluid" src="{{ asset('assets/img/logos/500x150logo.webp') }}" alt="Logo Feedbacker" >
-                </a>
+    <!-- Wave Animation Background -->
+    <div class="wave"></div>
 
-                @if(Auth::check())
-                {{-- Open/Close Menu Reponsive Design --}}
-                    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                        </svg>
-                    </button>
-                    
-                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-                            <li>
-                                @if(Auth::user()->company->satisfaction_active)
-                                    <a href="{{ route('home.satisfaction') }}" class="block py-2 px-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Feedbacker Reviews</a>
-                                @else
-                                    <a class="block py-2 px-2 text-white bg-blue-400 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2" disabled>Feedbacker Reviews</a>
-                                @endif
-                            </li>
-                            <li>
-                                @if(Auth::user()->company->pqr_active)
-                                    <a href="{{ route('home.pqr') }}" class="block py-2 px-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Feedbacker PQRSF</a>
-                                @else
-                                    <a class="block py-2 px-2 text-white bg-blue-400 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2" disabled>Feedbacker PQRSF</a>
-                                @endif
-                            </li>
-                            <li>
-                                <a href="{{ route('home.settings') }}" class="block py-2 px-2 text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">
-                                Configuración                            
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block py-2 px-2 text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Cerrar Sesión</a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                @endif
-            </div>
-        </nav>
-
-        <main class="">
-            @yield('content')
-        </main>
-    </div>
-
-
-    <footer class="bg-gray-50 mt-6">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-            <div class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
-                    <a href="{{ url('/home')}}" class="items-center">
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap text-dark">Feedbacker</span>
-                    </a>
-                    <p>
-                        Build a customer-oriented organization that actively listens to the Voice of the Customer (VOC)
-
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-2">
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                            <li class="mb-4">
-                                <a href="{{ route('privacy') }}" class="hover:underline">Privacy Policy</a>
-                            </li>
-                            <li class="mb-4">
-                                <a href="{{ route('terms') }}" class="hover:underline">Terms &amp; Conditions</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('cookies') }}" class="hover:underline">Cookies Policy</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-center text-gray-500 md:text-center">
-                    <a href="{{ url('/home') }}" class="hover:underline">Feedbacker</a> is a brand from <strong><span><a href="https://dataplicada.com/">Dataplicada</a> &copy; </span></strong>. All Rights Reserved.
-                </span>
+    <nav class="navbar bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Iniciar Sesión</button>
+                <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                    <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page">Inicio</a>
+                    </li>
+                    <li>
+                    <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Nosotros</a>
+                    </li>
+                    <li>
+                    <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Servicios</a>
+                    </li>
+                    <li>
+                    <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contacto</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
-    
+    </nav>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
+    <main>
+        @yield('content')
+    </main>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
 
