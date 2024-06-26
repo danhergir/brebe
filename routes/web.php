@@ -9,4 +9,10 @@ Route::get('/', function () {
 
 // Register User
 Route::get('/registro/1-step', [UserController::class, 'register'])->name('user.register');
+Route::post('/registro/1/guardar', [UserController::class, 'submitForm1'])->name('user.save-1');
+
 Route::get('/registro/2-step', [UserController::class, 'registerStep2'])->name('user.register-2');
+Route::post('/registro/2/guardar', [UserController::class, 'submitForm2'])->name('user.save-2');
+
+Route::get('/registro/3-step', [UserController::class, 'registerStep3'])->name('user.register-3');
+Route::get('/registro/4-step', [UserController::class, 'registerStep4'])->name('user.register-4');

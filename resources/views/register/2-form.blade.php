@@ -23,7 +23,7 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
                 </svg>
                 <li class="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5 rtl:space-x-reverse">
-                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">2</span>
+                    <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">2</span>
                     <span>
                         <h3 class="font-medium leading-tight">Ubicación</h3>
                     </span>
@@ -323,11 +323,11 @@
 
                     <div class="sm:col-span-2">
                         <label for="address" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Dirección</label>
-                        <input type="text" name="address" id="address" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Cra 5 N Cl 9 #18-10" required="">
+                        <input type="text" name="address" id="address" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Cra 5 N Cl 9 #18-10" required="">
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="department" class="block mb-2 text-sm font-medium text-white">Nacionalidad</label>
+                        <label for="department" class="block mb-2 text-sm font-medium text-white">Departamento</label>
                         <select id="department" name="department" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="amazonas">Amazonas</option>
                             <option value="antioquia">Antioquia</option>
@@ -366,22 +366,22 @@
 
                     <div class="sm:col-span-2">
                         <label for="city" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Ciudad</label>
-                        <input type="text" name="city" id="city" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Bogotá" required="">
+                        <input type="text" name="city" id="city" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Bogotá" required="">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="zipcode" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Código postal</label>
-                        <input type="text" name="zipcode" id="zipcode" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="762028" required="">
+                        <input type="text" name="zipcode" id="zipcode" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="762028" required="">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="company_email" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Correo electrónico empresarial</label>
-                        <input type="email" name="company_email" id="company_email" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@brebe.com" required="">
+                        <input type="email" name="company_email" id="company_email" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@brebe.com" required="">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="company_phone" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Télefono de contacto de la empresa</label>
-                        <input type="text" name="company_phone" id="company_phone" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
+                        <input type="text" name="company_phone" id="company_phone" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
                     </div>
                 </div>
                 <div class="text-center space-x-2">

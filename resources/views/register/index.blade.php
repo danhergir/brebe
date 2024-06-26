@@ -74,21 +74,22 @@
     <section class="text-white">
         <div class="py-5 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-6 text-3xl font-bold text-white dark:text-white text-center">Información Personal</h2>
-            <form action="#">
+            <form action="{{ route('user.save-1') }}" method="POST">
+                @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-2">
                         <label for="name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Nombres</label>
-                        <input type="text" name="name" id="name" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Daniel Andres" required="">
+                        <input type="text" name="name" id="name" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Daniel Andres" required="">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="last_name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Apellidos</label>
-                        <input type="text" name="last_name" id="last_name" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Salazar Duque" required="">
+                        <input type="text" name="last_name" id="last_name" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Salazar Duque" required="">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="phone" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de telefóno</label>
-                        <input type="text" name="phone" id="phone" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
+                        <input type="text" name="phone" id="phone" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
                     </div>
 
                     <div class="sm:col-span-2">
@@ -346,17 +347,17 @@
 
                     <div class="sm:col-span-2">
                         <label for="document_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento</label>
-                        <input type="text" name="document_number" id="document_number" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="10287999" required="">
+                        <input type="text" name="document_number" id="document_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="10287999" required="">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="email" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Correo electrónico</label>
-                        <input type="email" name="email" id="email" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@email.com" required="">
+                        <input type="email" name="email" id="email" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@email.com" required="">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="birthdate" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Fecha de nacimiento</label>
-                        <input type="text" name="birthdate" id="birthdate" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="02/08/2000" required="">
+                        <input type="text" name="birthdate" id="birthdate" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="02/08/2000" required="">
                     </div>
 
                     <div class="sm:col-span-2">
