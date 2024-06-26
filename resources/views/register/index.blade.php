@@ -78,23 +78,33 @@
                 @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-2">
-                        <label for="name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Nombres</label>
-                        <input type="text" name="name" id="name" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Daniel Andres" required="">
+                        <label for="name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Nombres *</label>
+                        <input type="text" name="name" id="name" value="{{ old('name', $user['name'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Daniel Andres" required="">
+                        @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+        
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="last_name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Apellidos</label>
-                        <input type="text" name="last_name" id="last_name" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Salazar Duque" required="">
+                        <label for="last_name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Apellidos *</label>
+                        <input type="text" name="last_name" id="last_name" value="{{ old('last_name', $user['last_name'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Salazar Duque" required="">
+                        @error('last_name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror        
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="phone" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de telefóno</label>
-                        <input type="text" name="phone" id="phone" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
+                        <label for="phone" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de telefóno *</label>
+                        <input type="text" name="phone" id="phone" value="{{ old('phone', $user['phone'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
+                        @error('phone')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="nationality" class="block mb-2 text-sm font-medium text-white">Nacionalidad</label>
-                        <select id="nationality" name="nationality" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="nationality" class="block mb-2 text-sm font-medium text-white">Nacionalidad *</label>
+                        <select id="nationality" name="nationality" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
                             <option value="DZ">Algeria</option>
@@ -338,31 +348,40 @@
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="type_id" class="block mb-2 text-sm font-medium text-white">Tipo de documento</label>
-                        <select id="type_id" name="type_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="type_id" class="block mb-2 text-sm font-medium text-white">Tipo de documento *</label>
+                        <select id="type_id" name="type_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="CC">Cédula de ciudadanía</option>
                             <option value="CE">Cédula de extranjería</option>
                         </select>                      
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="document_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento</label>
-                        <input type="text" name="document_number" id="document_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="10287999" required="">
+                        <label for="document_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento *</label>
+                        <input type="text" name="document_number" value="{{ old('document_number', $user['document_number'] ?? '') }}" id="document_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="10287999" required="">
+                        @error('document_number')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="email" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Correo electrónico</label>
-                        <input type="email" name="email" id="email" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@email.com" required="">
+                        <label for="email" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Correo electrónico *</label>
+                        <input type="email" name="email" id="email" value="{{ old('email', $user['email'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@email.com" required="">
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror        
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="birthdate" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Fecha de nacimiento</label>
-                        <input type="text" name="birthdate" id="birthdate" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="02/08/2000" required="">
+                        <label for="birthdate" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Fecha de nacimiento *</label>
+                        <input type="text" name="birthdate" id="birthdate" value="{{ old('birthdate', $user['birthdate'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="02/08/2000" required="">
+                        @error('birthdate')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="economical_activity" class="block mb-2 text-sm font-medium text-white">Actividad económica</label>
-                        <select id="economical_activity" name="economical_activity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="economical_activity" class="block mb-2 text-sm font-medium text-white">Actividad económica *</label>
+                        <select id="economical_activity" name="economical_activity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="">Seleccione una opción</option>
                             <option value="CC">Turismo</option>
                             <option value="CE">Industria y Comercio</option>
