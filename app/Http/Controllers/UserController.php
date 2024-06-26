@@ -43,8 +43,13 @@ class UserController extends Controller
     {
         // Validate the form data
         $validated = $request->validate([
-            'phone' => 'required|string|max:15',
+            'country' => 'required|string|max:15',
             'address' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'zipcode' => 'required|numeric',
+            'company_email' => 'required|email|max:255|unique:users,email',
+            'company_phone' => 'required|numeric',
         ]);
 
         // Retrieve existing session data and merge with new data
