@@ -7,4 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registro', [UserController::class, 'register'])->name('user.register');
+// Register User
+Route::get('/registro/1-step', [UserController::class, 'register'])->name('user.register');
+Route::get('/registro/2-step', [UserController::class, 'registerStep2'])->name('user.register-2');
