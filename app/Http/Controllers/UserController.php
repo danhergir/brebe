@@ -7,8 +7,6 @@ use Session;
 
 class UserController extends Controller
 {
-    //
-
     public function register(Request $request) {
         $user = Session::get('user_data', []);
 

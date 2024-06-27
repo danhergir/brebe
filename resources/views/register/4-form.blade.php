@@ -5,7 +5,7 @@
 <div>
     <section>
         <div class="py-8 px-4 mt-8  mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 class="mt-10 text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-none text-white">Más cerca aún de empezar a vender con Brebe.</h1>
+            <h1 class="mt-10 text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-none text-white">A un paso de empezar a vender con Brebe.</h1>
         </div>
     </section>
 
@@ -59,10 +59,10 @@
         <div class="radial-stepper hidden mx-auto text-center">
             <ol class="mx-auto text-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
                 <li class="mx-auto text-center text-blue-600 dark:text-blue-500 space-x-2.5 rtl:space-x-reverse">
-                    <button type="button" class="text-white bg-blue-600 border font-medium rounded-full text-md px-5 py-2.5 text-center mb-2">3 de 5</button>
+                    <button type="button" class="text-white bg-blue-600 border font-medium rounded-full text-md px-5 py-2.5 text-center mb-2">4 de 5</button>
                     <span>
                         {{-- <h3 class="font-medium text-2xl text-center">Información Personal</h3> --}}
-                        <p class="text-sm text-center text-blue-600 mt-2">Siguiente paso: Datos del Negocio</p>
+                        <p class="text-sm text-center text-blue-600 mt-2">Siguiente paso: Validación</p>
                     </span>
                 </li>
             </ol>            

@@ -5,7 +5,7 @@
 <div>
     <section>
         <div class="py-8 px-4 mt-8  mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 class="mt-10 text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-none text-white">Más cerca aún de empezar a vender con Brebe.</h1>
+            <h1 class="mt-10 text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-none text-white">Así de fácil es empezar a vender con Brebe.</h1>
         </div>
     </section>
 
@@ -78,7 +78,7 @@
                 @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-2">
-                        <label for="bank_name" class="block mb-2 text-sm font-medium text-white">Nombre del banco</label>
+                        <label for="bank_name" class="block mb-2 text-sm font-medium text-white">Nombre del banco *</label>
                         <select id="bank_name" name="bank_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="ahorros">Cuenta Ahorros</option>
                             <option value="corriente">Cuenta Corriente</option>
@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="account_type" class="block mb-2 text-sm font-medium text-white">Tipo de cuenta</label>
+                        <label for="account_type" class="block mb-2 text-sm font-medium text-white">Tipo de cuenta *</label>
                         <select id="account_type" name="account_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="ahorros">Cuenta Ahorros</option>
                             <option value="corriente">Cuenta Corriente</option>
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="account_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de cuenta bancaria</label>
+                        <label for="account_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de cuenta bancaria *</label>
                         <input type="text" name="account_number" value="{{ old('account_number', $user['account_number'] ?? '') }}" id="account_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Número de cuenta" required="">
                         @error('account_number')
                             <span class="text-danger">{{ $message }}</span>
@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="document_type" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Tipo de documento de indentidad</label>
+                        <label for="document_type" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Tipo de documento de indentidad *</label>
                         <select id="document_type" name="document_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="CC">Cédula de ciudadanía</option>
                             <option value="CE">Cédula de extranjería</option>
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="document_number_bank" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento</label>
+                        <label for="document_number_bank" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento *</label>
                         <input type="text" name="document_number_bank" value="{{ old('document_number_bank', $user['document_number_bank'] ?? '') }}" id="document_number_bank" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Número de documento" required="">
                         @error('document_number_bank')
                             <span class="text-danger">{{ $message }}</span>
