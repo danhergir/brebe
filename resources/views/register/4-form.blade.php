@@ -73,41 +73,64 @@
     <section class="text-white">
         <div class="py-5 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-6 text-3xl font-bold text-white dark:text-white text-center">Datos del Negocio</h2>
-            <form action="#">
+            <form action="{{ route('user.save-4') }}" method="POST">
+                @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-2">
                         <label for="product_description" class="block mb-2 text-sm font-medium text-white">Describe lo que vendes *</label>
-                        <input type="text" name="product_description" id="product_description" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Productos ortopédicos" required="">
+                        <input type="text" name="product_description" value="{{ old('product_description', $user['product_description'] ?? '') }}" id="product_description" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Productos ortopédicos" required="">
+                        @error('product_description')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="company_name" class="block mb-2 text-sm font-medium text-white">Nombre comercial *</label>
-                        <input type="text" name="company_name" id="company_name" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nombre de la marca o del negocio" required="">
+                        <input type="text" name="company_name" value="{{ old('company_name', $user['company_name'] ?? '') }}" id="company_name" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nombre de la marca o del negocio" required="">
+                        @error('company_name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="instagram" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Instagram</label>
-                        <input type="text" name="instagram" id="instagram" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nombre de usuario" required="">
+                        <input type="text" name="instagram" value="{{ old('instagram', $user['instagram'] ?? '') }}" id="instagram" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nombre de usuario">
+                        @error('instagram')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="website" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Página Web</label>
-                        <input type="text" name="website" id="website" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.miempresa.com" required="">
+                        <input type="text" name="website" value="{{ old('website', $user['website'] ?? '') }}" id="website" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.miempresa.com">
+                        @error('website')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="facebook" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Facebook</label>
-                        <input type="text" name="facebook" id="facebook" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://facebook.com/nombredeusuario" required="">
+                        <input type="text" name="facebook" value="{{ old('facebook', $user['facebook'] ?? '') }}" id="facebook" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://facebook.com/nombredeusuario">
+                        @error('facebook')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>  
 
                     <div class="sm:col-span-2">
                         <label for="linkedin" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">LinkedIn</label>
-                        <input type="text" name="linkedin" id="linkedin" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://linkedin.com/in/usuario" required="">
+                        <input type="text" name="linkedin" id="linkedin" value="{{ old('linkedin', $user['linkedin'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://linkedin.com/in/usuario">
+                        @error('linkedin')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="whatsapp_business" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">WhatsApp Business</label>
-                        <input type="text" name="whatsapp_business" id="whatsapp_business" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
+                        <input type="text" name="whatsapp_business" value="{{ old('whatsapp_business', $user['whatsapp_business'] ?? '') }}" id="whatsapp_business" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791">
+                        @error('whatsapp_business')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                 </div>

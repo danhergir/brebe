@@ -18,3 +18,4 @@ Route::get('/registro/3-step', [UserController::class, 'registerStep3'])->name('
 Route::post('/registro/3/guardar', [UserController::class, 'submitForm3'])->name('user.save-3');
 
 Route::get('/registro/4-step', [UserController::class, 'registerStep4'])->name('user.register-4');
+Route::post('/registro/4/guardar', [UserController::class, 'submitForm4'])->name('user.save-4');

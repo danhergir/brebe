@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 
 class UserController extends Controller
 {
     //
 
     public function register(Request $request) {
-        $user = $request->session()->get('user_data', []);
+        $user = Session::get('user_data', []);
+
         return view('register.index', compact('user'));
     }
 
     public function submitForm1(Request $request)
     {
-        // Validate the form data
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -27,21 +28,21 @@ class UserController extends Controller
             'economical_activity' => 'required|string|max:255',
         ]);
 
-        // Store the validated data in the session
-        $request->session()->put('user_data', array_merge($request->session()->get('user_data', []), $validated));
-
-        // Return a response, such as redirecting to another page or showing a success message
-        return redirect()->route('user.register-2')->with('success', 'Datos guardados!');
+        return $this->validateData(1, $validated);
     }
 
     public function registerStep2(Request $request) {
-        $user = $request->session()->get('user_data', []);
+        $user = Session::get('user_data', []);
+
+        if(empty($user)) {
+            return redirect()->route('user.register');
+        }
+
         return view('register.2-form', compact('user'));
     }
 
     public function submitForm2(Request $request)
     {
-        // Validate the form data
         $validated = $request->validate([
             'country' => 'required|string|max:15',
             'address' => 'required|string|max:255',
@@ -52,16 +53,15 @@ class UserController extends Controller
             'company_phone' => 'required|numeric',
         ]);
 
-        // Retrieve existing session data and merge with new data
-        $userData = $request->session()->get('user_data', []);
-        $userData = array_merge($userData, $validated);
-        $request->session()->put('user_data', $userData);
-
-        return redirect()->route('user.register-3')->with('success', 'Datos guardados!');
+        return $this->validateData(2, $validated);
     }
 
     public function registerStep3(Request $request) {
-        $user = $request->session()->get('user_data', []);
+        $user = Session::get('user_data', []);
+
+        if(empty($user)) {
+            return redirect()->route('user.register');
+        }
 
         return view('register.3-form', compact('user'));
     }
@@ -75,15 +75,45 @@ class UserController extends Controller
             'document_number_bank' => 'required|numeric',
         ]);
 
-        // Retrieve existing session data and merge with new data
-        $userData = $request->session()->get('user_data', []);
-        $userData = array_merge($userData, $validated);
-        $request->session()->put('user_data', $userData);
-
-        return redirect()->route('user.register-4')->with('success', 'Datos guardados!');
+        return $this->validateData(3, $validated);
     }
 
-    public function registerStep4() {
-        return view('register.4-form');
+    public function registerStep4(Request $request) {
+        $user = Session::get('user_data', []);
+
+        if(empty($user)) {
+            return redirect()->route('user.register');
+        }
+
+        return view('register.4-form', compact('user'));
     }
+
+    public function submitForm4(Request $request) {
+        $validated = $request->validate([
+            'product_description' => 'required|string|max:255',
+            'company_name' => 'required|string|max:255',
+            'instagram' => 'string|nullable|max:255',
+            'website' => 'string|nullable|url|max:255',
+            'facebook' => 'string|nullable|url|max:255',
+            'linkedin' => 'string|nullable|url|max:255',
+            'whatsapp_business' => 'string|nullable|max:255',
+        ]);
+
+        return $this->validateData(4, $validated);
+    }
+
+    public function validateData($step, $validated) {
+        if($step == 1) {
+            Session::put('user_data', array_merge(Session::get('user_data', []), $validated));
+        } else {
+            $userData = Session::get('user_data', []);
+        
+            $userData = array_merge($userData, $validated);
+    
+            Session::put('user_data', $userData);    
+        }
+
+        return redirect()->route('user.register-'.$step+1)->with('success', 'Datos guardados!');
+    }
+
 }
