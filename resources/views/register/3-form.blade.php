@@ -74,11 +74,12 @@
     <section class="text-white">
         <div class="py-5 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-6 text-3xl font-bold text-white dark:text-white text-center">Ubicación</h2>
-            <form action="#">
+            <form action="{{ route('user.save-3') }}" method="POST">
+                @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-2">
                         <label for="bank_name" class="block mb-2 text-sm font-medium text-white">Nombre del banco</label>
-                        <select id="bank_name" name="bank_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select id="bank_name" name="bank_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="ahorros">Cuenta Ahorros</option>
                             <option value="corriente">Cuenta Corriente</option>
                         </select>                      
@@ -86,7 +87,7 @@
 
                     <div class="sm:col-span-2">
                         <label for="account_type" class="block mb-2 text-sm font-medium text-white">Tipo de cuenta</label>
-                        <select id="account_type" name="account_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select id="account_type" name="account_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="ahorros">Cuenta Ahorros</option>
                             <option value="corriente">Cuenta Corriente</option>
                         </select>                      
@@ -94,27 +95,33 @@
 
                     <div class="sm:col-span-2">
                         <label for="account_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de cuenta bancaria</label>
-                        <input type="text" name="account_number" id="account_number" class="bg-whiteborder border-white text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Cra 5 N Cl 9 #18-10" required="">
+                        <input type="text" name="account_number" value="{{ old('account_number', $user['account_number'] ?? '') }}" id="account_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Número de cuenta" required="">
+                        @error('account_number')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror        
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="document_type" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Tipo de documento de indentidad</label>
-                        <select id="document_type" name="document_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select id="document_type" name="document_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="CC">Cédula de ciudadanía</option>
                             <option value="CE">Cédula de extranjería</option>
                         </select>                      
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="document_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento</label>
-                        <input type="text" name="document_number" id="document_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="762028" required="">
+                        <label for="document_number_bank" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento</label>
+                        <input type="text" name="document_number_bank" value="{{ old('document_number_bank', $user['document_number_bank'] ?? '') }}" id="document_number_bank" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Número de documento" required="">
+                        @error('document_number_bank')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
                 <div class="text-center space-x-2">
-                    <button type="submit" class="inline-flex text-center items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-black bg-white rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    <a href="{{ route('user.register-2') }}" class="inline-flex text-center items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-black bg-white rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                         Volver
-                    </button>
-                    <button type="submit" class="inline-flex text-center items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-black bg-white rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    </a>
+                    <button type="submit" class="inline-flex bg-blue-700 text-center items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                         Guardar
                     </button>
                 </div>

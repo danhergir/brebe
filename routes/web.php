@@ -15,4 +15,6 @@ Route::get('/registro/2-step', [UserController::class, 'registerStep2'])->name('
 Route::post('/registro/2/guardar', [UserController::class, 'submitForm2'])->name('user.save-2');
 
 Route::get('/registro/3-step', [UserController::class, 'registerStep3'])->name('user.register-3');
+Route::post('/registro/3/guardar', [UserController::class, 'submitForm3'])->name('user.save-3');
+
 Route::get('/registro/4-step', [UserController::class, 'registerStep4'])->name('user.register-4');
