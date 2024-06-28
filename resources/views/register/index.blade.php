@@ -383,8 +383,9 @@
                         <label for="economical_activity" class="block mb-2 text-sm font-medium text-white">Actividad económica *</label>
                         <select id="economical_activity" name="economical_activity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="">Seleccione una opción</option>
-                            <option value="CC">Turismo</option>
-                            <option value="CE">Industria y Comercio</option>
+                            @foreach ($economical_activities as $activity)
+                                <option value="{{ $activity->id }}" {{ (isset($user['economical_activity']) && $user['economical_activity'] == $activity->id ? 'selected' : '') }}>{{ $activity->name }}</option>
+                            @endforeach
                         </select>                      
                     </div>
                 </div>

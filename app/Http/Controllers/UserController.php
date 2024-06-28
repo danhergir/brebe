@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use App\Models\EconomicalActivity;
+use App\Models\Bank;
 
 class UserController extends Controller
 {
     public function register(Request $request) {
         $user = Session::get('user_data', []);
+        $economical_activities = EconomicalActivity::all();
 
-        return view('register.index', compact('user'));
+        return view('register.index', compact('user', 'economical_activities'));
     }
 
     public function submitForm1(Request $request)
@@ -55,13 +58,14 @@ class UserController extends Controller
     }
 
     public function registerStep3(Request $request) {
+        $banks = Bank::all();
         $user = Session::get('user_data', []);
 
         if(empty($user)) {
             return redirect()->route('user.register');
         }
 
-        return view('register.3-form', compact('user'));
+        return view('register.3-form', compact('user', 'banks'));
     }
 
     public function submitForm3(Request $request) {
