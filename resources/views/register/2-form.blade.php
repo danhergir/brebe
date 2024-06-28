@@ -83,7 +83,7 @@
                             <option value="CO" selected>Colombia</option>
                         </select>
                         @error('country')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
 
                     </div>
@@ -92,7 +92,7 @@
                         <label for="address" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Dirección *</label>
                         <input type="text" name="address" value="{{ old('address', $user['address'] ?? '') }}" id="address" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Cra 5 N Cl 9 #18-10" required="">
                         @error('address')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -110,7 +110,7 @@
                         <label for="city" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Ciudad *</label>
                         <input type="text" name="city" id="city" value="{{ old('city', $user['city'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Bogotá" required="">
                         @error('city')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -118,7 +118,7 @@
                         <label for="zipcode" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Código postal *</label>
                         <input type="text" name="zipcode" value="{{ old('zipcode', $user['zipcode'] ?? '') }}" id="zipcode" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="762028" required="">
                         @error('zipcode')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -126,7 +126,7 @@
                         <label for="company_email" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Correo electrónico empresarial *</label>
                         <input type="email" name="company_email" value="{{ old('company_email', $user['company_email'] ?? '') }}" id="company_email" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@brebe.com" required="">
                         @error('company_email')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -134,7 +134,7 @@
                         <label for="company_phone" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Télefono de contacto de la empresa *</label>
                         <input type="text" name="company_phone" value="{{ old('company_phone', $user['company_phone'] ?? '') }}" id="company_phone" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
                         @error('company_phone')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>

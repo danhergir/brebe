@@ -99,7 +99,7 @@
                         <label for="account_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de cuenta bancaria *</label>
                         <input type="text" name="account_number" value="{{ old('account_number', $user['account_number'] ?? '') }}" id="account_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Número de cuenta" required="">
                         @error('account_number')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror        
                     </div>
 
@@ -115,7 +115,7 @@
                         <label for="document_number_bank" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento *</label>
                         <input type="text" name="document_number_bank" value="{{ old('document_number_bank', $user['document_number_bank'] ?? '') }}" id="document_number_bank" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Número de documento" required="">
                         @error('document_number_bank')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>

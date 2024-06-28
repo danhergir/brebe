@@ -81,7 +81,7 @@
                         <label for="name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Nombres *</label>
                         <input type="text" name="name" id="name" value="{{ old('name', $user['name'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Daniel Andres" required="">
                         @error('name')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
         
                     </div>
@@ -90,7 +90,7 @@
                         <label for="last_name" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Apellidos *</label>
                         <input type="text" name="last_name" id="last_name" value="{{ old('last_name', $user['last_name'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Salazar Duque" required="">
                         @error('last_name')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror        
                     </div>
 
@@ -98,7 +98,7 @@
                         <label for="phone" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de telefóno *</label>
                         <input type="text" name="phone" id="phone" value="{{ old('phone', $user['phone'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="3113414791" required="">
                         @error('phone')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -359,7 +359,7 @@
                         <label for="document_number" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Número de documento *</label>
                         <input type="text" name="document_number" value="{{ old('document_number', $user['document_number'] ?? '') }}" id="document_number" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="10287999" required="">
                         @error('document_number')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -367,7 +367,7 @@
                         <label for="email" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Correo electrónico *</label>
                         <input type="email" name="email" id="email" value="{{ old('email', $user['email'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="danielsantiago@email.com" required="">
                         @error('email')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror        
                     </div>
 
@@ -375,7 +375,7 @@
                         <label for="birthdate" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Fecha de nacimiento *</label>
                         <input type="text" name="birthdate" id="birthdate" value="{{ old('birthdate', $user['birthdate'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="02/08/2000" required="">
                         @error('birthdate')
-                            <span class="text-danger">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
 
