@@ -99,38 +99,10 @@
                     <div class="sm:col-span-2">
                         <label for="department" class="block mb-2 text-sm font-medium text-white">Departamento *</label>
                         <select id="department" name="department" value="{{ old('deparment', $user['deparment'] ?? '') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                            <option value="amazonas">Amazonas</option>
-                            <option value="antioquia">Antioquia</option>
-                            <option value="arauca">Arauca</option>
-                            <option value="atlantico">Atlántico</option>
-                            <option value="bolivar">Bolívar</option>
-                            <option value="boyaca">Boyacá</option>
-                            <option value="caldas">Caldas</option>
-                            <option value="caqueta">Caquetá</option>
-                            <option value="casanare">Casanare</option>
-                            <option value="cauca">Cauca</option>
-                            <option value="cesar">Cesar</option>
-                            <option value="choco">Chocó</option>
-                            <option value="cordoba">Córdoba</option>
-                            <option value="cundinamarca">Cundinamarca</option>
-                            <option value="guainia">Guainía</option>
-                            <option value="guaviare">Guaviare</option>
-                            <option value="huila">Huila</option>
-                            <option value="la_guajira">La Guajira</option>
-                            <option value="magdalena">Magdalena</option>
-                            <option value="meta">Meta</option>
-                            <option value="narino">Nariño</option>
-                            <option value="norte_de_santander">Norte de Santander</option>
-                            <option value="putumayo">Putumayo</option>
-                            <option value="quindio">Quindío</option>
-                            <option value="risaralda">Risaralda</option>
-                            <option value="san_andres_and_providencia">San Andrés and Providencia</option>
-                            <option value="santander">Santander</option>
-                            <option value="sucre">Sucre</option>
-                            <option value="tolima">Tolima</option>
-                            <option value="valle_del_cauca">Valle del Cauca</option>
-                            <option value="vaupes">Vaupés</option>
-                            <option value="vichada">Vichada</option>                    
+                            <option value="">Seleccione una opción</option>
+                            @foreach ($departments as $department)
+                                <option value="{{ $department }}" {{ (isset($user['department']) && $user['department'] == $department ? 'selected' : '') }}>{{ $department }}</option>
+                            @endforeach
                         </select>                      
                     </div>
 

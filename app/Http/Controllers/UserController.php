@@ -35,11 +35,46 @@ class UserController extends Controller
     public function registerStep2(Request $request) {
         $user = Session::get('user_data', []);
 
+        $departments = [
+            "Amazonas",
+            "Antioquia",
+            "Arauca",
+            "Atlántico",
+            "Bolívar",
+            "Boyacá",
+            "Caldas",
+            "Caquetá",
+            "Casanare",
+            "Cauca",
+            "Cesar",
+            "Chocó",
+            "Córdoba",
+            "Cundinamarca",
+            "Guainía",
+            "Guaviare",
+            "Huila",
+            "La Guajira",
+            "Magdalena",
+            "Meta",
+            "Nariño",
+            "Norte de Santander",
+            "Putumayo",
+            "Quindío",
+            "Risaralda",
+            "San Andrés and Providencia",
+            "Santander",
+            "Sucre",
+            "Tolima",
+            "Valle del Cauca",
+            "Vaupés",
+            "Vichada"
+        ];
+
         if(empty($user)) {
             return redirect()->route('user.register');
         }
 
-        return view('register.2-form', compact('user'));
+        return view('register.2-form', compact('user', 'departments'));
     }
 
     public function submitForm2(Request $request)
