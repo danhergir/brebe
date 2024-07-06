@@ -13,6 +13,9 @@
 <body>
 
     <!-- Wave Animation Background -->
+
+    {{-- <div class="w-screen animated-background h-screen bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 animate-gradient-slow" ></div> --}}
+
     <div class="wave"></div>
 
     <nav class="navbar bg-white border-gray-200 dark:bg-gray-900">

@@ -371,9 +371,19 @@
                         @enderror        
                     </div>
 
-                    <div class="sm:col-span-2">
+                    {{-- <div class="sm:col-span-2">
                         <label for="birthdate" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Fecha de nacimiento *</label>
                         <input type="text" name="birthdate" id="birthdate" value="{{ old('birthdate', $user['birthdate'] ?? '') }}" class="bg-whiteborder border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="02/08/2000" required="">
+                    </div> --}}
+
+                    <div class="sm:col-span-2">
+                        <label for="birthdate" class="block mb-2 text-white text-sm font-medium text-white dark:text-white">Fecha de nacimiento *</label>
+                        {{-- <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </div> --}}
+                        <input datepicker id="default-datepicker" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Selecciona una fecha">
                         @error('birthdate')
                             <span class="text-red-600">{{ $message }}</span>
                         @enderror
@@ -398,5 +408,23 @@
         </div>
     </section>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const datepickerEl = document.getElementById('default-datepicker');
+
+        const datepicker = new Datepicker(datepickerEl, {
+            language: 'es', // Set language to Spanish
+            format: 'dd/mm/yyyy', // Set date format to dd/mm/yyyy
+            localization: {
+                locale: 'es', // Ensure localization is set to Spanish
+            }
+        });
+
+        // Set the placeholder text to Spanish
+        datepickerEl.setAttribute('placeholder', 'Selecciona una fecha');
+    });
+</script>
+
 
 @endsection
