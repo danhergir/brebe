@@ -6,7 +6,7 @@
     <title>Brebe</title>
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.5.0/flowbite.min.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{{ asset('img/logo-1.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}">
 
     @vite('resources/css/app.css')
 
@@ -19,10 +19,10 @@
 
     <div class="wave"></div>
 
-    <nav class="navbar bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="navbar bg-white border-gray-200 dark:bg-gray-900 p-6">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{{ asset('img/Brebe.png') }}" width="120" alt="Flowbite Logo" />
+                <img src="{{ asset('img/favicon.png') }}" width="40" alt="Brebe Logo" />
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Iniciar Sesión</button>
