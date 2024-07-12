@@ -153,4 +153,31 @@ class UserController extends Controller
         return redirect()->route('user.register-'.$step+1)->with('success', 'Datos guardados!');
     }
 
+    // Validate user via email and register account
+
+    public function registerStep5(Request $request) {
+        $user = Session::get('user_data', []);
+
+        if(empty($user)) {
+            return redirect()->route('user.register');
+        }
+
+        return view('register.5-form', compact('user'));
+    }
+
+    public function submitForm5(Request $request) {
+        $validated = $request->validate([
+            'product_description' => 'required|string|max:255',
+            'company_name' => 'required|string|max:255',
+            'instagram' => 'string|nullable|max:255',
+            'website' => 'string|nullable|url|max:255',
+            'facebook' => 'string|nullable|url|max:255',
+            'linkedin' => 'string|nullable|url|max:255',
+            'whatsapp_business' => 'string|nullable|max:255',
+        ]);
+
+        // return $this->validateData(4, $validated);
+        return 'Account created';
+    }
+
 }
