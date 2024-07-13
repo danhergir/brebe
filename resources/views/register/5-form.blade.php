@@ -113,16 +113,13 @@
 
 <script>
     function send_mail() {
-        const email = 'danielandres65@gmail.com'
-        const url = 'http://localhost:8000/send/validation/'+email;
+        const url = 'http://localhost:8000/send/validation';
 
         console.log('send mail')
 
         fetch(url, {
             method: "GET",
         })
-        .then((response) => response.json())
-        .then(() => console.log(json))
         .catch((error) => {
             console.error(error);
         })

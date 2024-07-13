@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Session;
 use Mail;
 
+use Illuminate\Support\Str;
 use App\Models\EconomicalActivity;
 use App\Models\Bank;
 use App\Mail\ValidationMail;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -184,12 +186,16 @@ class UserController extends Controller
         return 'Account created';
     }
 
-    public function sendValidation($email) {
+    public function sendValidation() {
+        $user = Session::get('user_data');
+        $code = str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+    
 
-        $email = 'sasty2000@gmail.com';
-        Mail::to($email)->send(new ValidationMail([
+        Mail::to($user['email'])->send(new ValidationMail([
             'title' => 'Validando tu correo con Brebe',
+            'name' => $user['name'],
             'body' => 'Estamos validando tu correo con Brebe',
+            'code' => str_split($code) // Passing the code as an array
         ]));
 
     }
