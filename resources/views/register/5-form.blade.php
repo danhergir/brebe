@@ -65,7 +65,7 @@
                         <p class="text-sm text-center text-blue-600 mt-2">¡Estás en el último paso!</p>
                     </span>
                 </li>
-            </ol>            
+            </ol>
         </div>    
     </div>
     
@@ -85,7 +85,7 @@
 
                         <div class="flex items-center space-x-2 mt-2">
                             <input type="text" autocomplete="off" name="code" value="{{ old('code', $user['code'] ?? '') }}" id="code" class="bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                            <button type="submit" class="px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">Enviar</button>
+                            <span onclick="send_mail()" class="px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">Enviar</span>
                         </div>
                         @error('code')
                             <span class="text-red-600">{{ $message }}</span>
@@ -110,5 +110,25 @@
         </div>
     </section>
 </div>
+
+<script>
+    function send_mail() {
+        const email = 'danielandres65@gmail.com'
+        const url = 'http://localhost:8000/send/validation/'+email;
+
+        console.log('send mail')
+
+        fetch(url, {
+            method: "GET",
+        })
+        .then((response) => response.json())
+        .then(() => console.log(json))
+        .catch((error) => {
+            console.error(error);
+        })
+    }
+
+
+</script>
 
 @endsection

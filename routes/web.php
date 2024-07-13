@@ -23,3 +23,4 @@ Route::post('/registro/4/guardar', [UserController::class, 'submitForm4'])->name
 Route::get('/registro/5-step', [UserController::class, 'registerStep5'])->name('user.register-5');
 Route::post('/registro/5/guardar', [UserController::class, 'submitForm5'])->name('user.save-5');
 
+Route::get('/send/validation/{email}', [UserController::class, 'sendValidation'])->name('send.validation');

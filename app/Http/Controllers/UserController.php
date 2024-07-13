@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use Mail;
+
 use App\Models\EconomicalActivity;
 use App\Models\Bank;
+use App\Mail\ValidationMail;
+
 
 class UserController extends Controller
 {
@@ -178,6 +182,16 @@ class UserController extends Controller
 
         // return $this->validateData(4, $validated);
         return 'Account created';
+    }
+
+    public function sendValidation($email) {
+
+        $email = 'sasty2000@gmail.com';
+        Mail::to($email)->send(new ValidationMail([
+            'title' => 'Validando tu correo con Brebe',
+            'body' => 'Estamos validando tu correo con Brebe',
+        ]));
+
     }
 
 }
